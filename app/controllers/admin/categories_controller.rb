@@ -1,5 +1,7 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < AdminController
+  
   def index
+    puts "adfasdf"
     @categories = Category.order(id: :desc).all
   end
 
