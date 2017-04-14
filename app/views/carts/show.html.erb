@@ -1,9 +1,14 @@
 <section class="cart-show">
-
+  <% if cart == {} %>
+    <header class="page-header">
+      <h1>Cart is empty, please buy something</h1>
+    </header>
+    <h5>Go Back</h5>
+    <%= link_to controller:'products' do %><div class="btn btn-default">Home</div><% end %>
+  <% else %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -32,7 +37,6 @@
       </tfoot>
     </table>
   </div>
-
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -49,5 +53,5 @@
       <% end %>
     </div>
   </div>
-
+  <% end %>
 </section>
