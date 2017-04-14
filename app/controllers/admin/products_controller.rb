@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
 
   def index
     @products = Product.order(id: :desc).all
@@ -26,15 +26,14 @@ class Admin::ProductsController < ApplicationController
 
   private
 
-  def product_params
-    params.require(:product).permit(
-      :name,
-      :description,
-      :category_id,
-      :quantity,
-      :image,
-      :price
-    )
-  end
-
+    def product_params
+      params.require(:product).permit(
+        :name,
+        :description,
+        :category_id,
+        :quantity,
+        :image,
+        :price
+      )
+    end
 end
