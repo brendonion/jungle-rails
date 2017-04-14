@@ -8,13 +8,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => 'wyatt.dev.test@gmail.com',
-  :password             => 'pizzabutt',
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => 'wyatt.dev.test@gmail.com',
+    :password             => 'pizzabutt',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 
   config.cache_classes = false
 
