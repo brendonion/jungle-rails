@@ -9,14 +9,10 @@
       <h5>Quantity: <%= the_item.quantity %></h5>
     </td>
     <td>
-      <%= image_tag the_product.image.tiny %>
-    </td>
-    <td>
-      <br>
       <p><%= the_product.description %></p>
     </td>
     <td>
-      <h5>Price: $<%= ((the_item.item_price_cents.to_i / 100.0) * quantity).to_s %></h5>
+      <h5>Price: $<%= ((the_item.item_price_cents.to_i / 100.00) * quantity).to_s %></h5>
     </td>
   </tr>
 <% end %>
