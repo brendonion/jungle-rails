@@ -25,12 +25,18 @@
         </dl>
       </div>
     </div>
-
     <div class="row">
       <% reviews = Review.where(product_id: @product.id) %>
       <header class="page-header">
         <h2>Reviews</h2>
       </header> 
+      <div class="post-review">
+        <%= form_for [@product, @review] do |f| %>
+          <%= f.text_area :description %>
+          <%= f.select :rating, [1, 2, 3, 4, 5] %>
+          <%= f.submit "Post Review" %>
+        <% end %>
+      </div>
       <tbody> 
         <% reviews.each do |review| %>
         <article class="review">
