@@ -1,0 +1,14 @@
+<% if the_review = Review.find_by(id: id) %>
+  <% the_reviewer = User.find_by(id: the_review.user_id) %>
+  <tr>
+    <td>
+      <h4><%= the_reviewer.first_name %>:</h4>
+    </td>
+    <td>
+      <p><%= the_review.description %></p>
+    </td>
+    <td>
+      <h5><%= the_review.rating %>/5</h5>
+    </td>
+  </tr>
+<% end %>

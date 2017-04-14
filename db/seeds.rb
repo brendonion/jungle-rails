@@ -35,6 +35,13 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
+User.create! ({
+  first_name: 'Brendan',
+  last_name: 'Walker',
+  email: 'email@email.com',
+  password_digest: '12345'
+})
+
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
@@ -92,12 +99,26 @@ cat2.products.create!({
   price: 164.49
 })
 
+Review.create!({
+  product_id: 7,
+  user_id: 1,
+  description: 'Really gnarly skate shoes, bruh! Buying like 3 pairs of these.',
+  rating: 4,
+})
+
 cat2.products.create!({
   name:  'Hotdog Slicer',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics2.jpg'),
   quantity: 3,
   price: 26.00
+})
+
+Review.create!({
+  product_id: 8,
+  user_id: 1,
+  description: 'Always needed one of these for my microwaveable hot dogs.',
+  rating: 3,
 })
 
 cat2.products.create!({
@@ -114,6 +135,20 @@ cat3.products.create!({
   image: open_asset('furniture1.jpg'),
   quantity: 320,
   price: 3_052.00
+})
+
+Review.create!({
+  product_id: 10,
+  user_id: 1,
+  description: 'Truly, the most optimal bed. You only need to sleep in one position anyway.',
+  rating: 4,
+})
+
+Review.create!({
+  product_id: 10,
+  user_id: 1,
+  description: "Actually, nevermind. It ain't that optimal.",
+  rating: 4,
 })
 
 cat3.products.create!({
