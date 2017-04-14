@@ -29,7 +29,8 @@
       <% reviews = Review.where(product_id: @product.id) %>
       <header class="page-header">
         <h2>Reviews</h2>
-      </header> 
+      </header>
+      <% if current_user %> 
       <div class="post-review">
         <%= form_for [@product, @review] do |f| %>
           <%= f.text_area :description %>
@@ -37,11 +38,12 @@
           <%= f.submit "Post Review" %>
         <% end %>
       </div>
+      <% end %>
       <tbody> 
         <% reviews.reverse_each do |review| %>
-        <article class="review">
-          <%= render 'review', id: review.id %>
-        </article>  
+          <article class="review">
+            <%= render 'review', id: review.id %>
+          </article>  
         <% end %>
       </tbody>
     </div>

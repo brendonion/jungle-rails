@@ -10,5 +10,10 @@
     <td>
       <h5><%= the_review.rating %>/5</h5>
     </td>
+    <% if the_review.user_id == current_user.id %>
+      <td>
+        <%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{id}", class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
