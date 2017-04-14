@@ -38,7 +38,7 @@
         <% end %>
       </div>
       <tbody> 
-        <% reviews.each do |review| %>
+        <% reviews.reverse_each do |review| %>
         <article class="review">
           <%= render 'review', id: review.id %>
         </article>  
