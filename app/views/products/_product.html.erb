@@ -18,7 +18,7 @@
     <% the_reviews = Review.where(product_id: product.id) %>
     <% if the_reviews != [] %>
       <% sum = 0.0 %>
-      <% counter = 0.0 %>
+      <% counter = 0 %>
       <% the_reviews.each do |review|%>
         <% sum += review.rating %>
         <% counter += 1 %>
