@@ -1,19 +1,15 @@
 <% if the_review = Review.find_by(id: id) %>
   <% the_reviewer = User.find_by(id: the_review.user_id) %>
-  <tr>
-    <td>
-      <h4><%= the_reviewer.first_name %>:</h4>
-    </td>
-    <td>
-      <p><%= the_review.description %></p>
-    </td>
-    <td>
-      <h5><%= the_review.rating %>/5</h5>
-    </td>
-    <% if the_review.user_id == current_user.id %>
-      <td>
+  <div>
+    <h4><%= the_reviewer.first_name %>:</h4>
+    <% if current_user && the_review.user_id == current_user.id %>
+      <span>
         <%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{id}", class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-      </td>
+      </span>
     <% end %>
-  </tr>
+    <p><%= the_review.description %></p>
+    <% the_review.rating.times do %>
+      <span><i class="fa fa-star-o" aria-hidden="true"></i></span>
+    <% end %>
+  </div>
 <% end %>

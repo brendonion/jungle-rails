@@ -3,8 +3,9 @@
     <header class="page-header">
       <h1>Cart is empty, please buy something</h1>
     </header>
-    <h5>Go Back</h5>
-    <%= link_to controller:'products' do %><div class="btn btn-default">Home</div><% end %>
+    <div class="well">
+    <%= link_to controller:'products' do %><div class="btn btn-default">Home <i class="fa fa-home" aria-hidden="true"></i></div><% end %>
+    </div>
   <% else %>
   <header class="page-header">
     <h1>My Cart</h1>

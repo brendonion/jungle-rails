@@ -33,5 +33,56 @@ span.login-display {
 
 .review {
   margin-bottom: 10px;
-  border-bottom: 1px dashed #dddbdb;
+  border: 1px dashed #dddbdb;
+  border-radius: 6px;
+  padding: 0 10px 10px 10px;
+  &:hover {
+    background: #f4faff;
+  }
+}
+
+.reviews-container {
+  padding: 0 15px;
+}
+
+.btn-danger {
+  float: right;
+}
+
+textarea#review_description {
+  width: 50%;
+  border: 1px solid #afafaf;
+  border-radius: 5px;
+  position: relative;
+  top: 9px;
+}
+
+#review_rating {
+  margin-left: 10px;
+  width: 3em;
+  height: 27px;
+}
+
+#new_review.new_review {
+  margin: 10px;
+  input {
+    margin-left: 10px;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+    background: #f9f9f9;
+    &:hover{
+      background: #e0e0e0;
+    }
+  }
+}
+
+.fa-star-o:hover  {
+  font-size: 18px;
+}
+
+img.gif {
+  width: 50%;
+  height: 50%;
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
