@@ -23,7 +23,7 @@
         <% sum += review.rating %>
         <% counter += 1 %>
       <% end %>
-      <%= sum / counter %>/5
+      <%= (sum / counter).round(1) %>/5
     <% else %>
       No Reviews
     <% end %>
