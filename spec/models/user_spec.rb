@@ -34,12 +34,10 @@ RSpec.describe User, type: :model do
       @user2 = User.create(
         first_name: 'Glinkus',
         last_name: 'Rex',
-        email: 'chester@lester.com',
+        email: 'cHEster@lester.com',
         password: 'password',
         password_confirmation: 'password'
       )
-
-      expect(@user.email).to eq(@user2.email)
       expect(@user2).to_not be_valid
     end
     it 'password must have minimum length of 6 characters' do
@@ -53,4 +51,48 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
   end
+  describe '.authenticate_with_credentials' do
+    it 'is a valid email in the database' do
+      @user = User.create(
+        first_name: 'Brendan',
+        last_name: 'Walker',
+        email: 'chester@lester.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+
+      theUser = User.find_by(email: @user.email)
+      expect(theUser).to be_valid
+    end
+    it 'has a password bcrypt match in the database' do
+      @user = User.create(
+        first_name: 'Brendan',
+        last_name: 'Walker',
+        email: 'chester@lester.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      theUser = User.authenticate_with_credentials(@user.email, @user.password)
+      expect(theUser).to be_valid
+    end
+    it 'users can log in with spaces before and/or after email' do
+      @user = User.create(
+        first_name: 'Brendan',
+        last_name: 'Walker',
+        email: 'chester@lester.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      theUser = User.authenticate_with_credentials('  cheSTER@lester.com  ', @user.password)
+      expect(theUser).to be_valid
+    end
+  end
 end
+
+
+
+
+
+
+
+
