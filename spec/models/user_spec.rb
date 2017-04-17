@@ -75,7 +75,7 @@ RSpec.describe User, type: :model do
       theUser = User.authenticate_with_credentials(@user.email, @user.password)
       expect(theUser).to be_valid
     end
-    it 'users can log in with spaces before and/or after email' do
+    it 'users can log in with spaces before and/or after email (case sensitivity is false)' do
       @user = User.create(
         first_name: 'Brendan',
         last_name: 'Walker',
