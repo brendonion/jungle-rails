@@ -20,7 +20,10 @@ RSpec.feature "User can successfully log in", type: :feature, js: true do
 
     click_on('Submit')
 
+    user_nav = find('.login-display')
+
     expect(page).to have_css '.products-index'
+    expect(user_nav).to have_content 'Signed in as'
 
   end
 end
