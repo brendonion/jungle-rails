@@ -19,9 +19,8 @@ RSpec.feature "Visitor navigates to product detail page", type: :feature, js: tr
     # ACT
     visit root_path
 
-    find(".product .btn-default", :match => :first).click
+    first(".product .btn-default").click
     # DEBUG / VERIFY
-    puts page.html
-    expect(page).to have_css '.products-detail'
+    expect(page).to have_css '.product-detail'
   end
 end
