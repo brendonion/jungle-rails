@@ -20,7 +20,7 @@ RSpec.feature "User can successfully log in", type: :feature, js: true do
 
     click_on('Submit')
 
-    expect(page).to have_css 'article.product'
+    expect(page).to have_css '.products-index'
 
   end
 end
