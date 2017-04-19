@@ -20,11 +20,9 @@ RSpec.feature "User adds an product to cart", type: :feature, js: true do
 
     find(".actions .btn-primary", :match => :first).click
 
-    save_screenshot
+    cart = find(".nav:last-child")
 
-    cart = find(".navbar-right:last-child").text.slice(6..16)
-
-    expect(cart).to eq("My Cart (1)")
+    expect(cart).to have_content("My Cart (1)")
 
   end
 end
