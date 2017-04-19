@@ -39,7 +39,8 @@ User.create! ({
   first_name: 'Brendan',
   last_name: 'Walker',
   email: 'email@email.com',
-  password_digest: '12345'
+  password: 'password',
+  password_confirmation: 'password'
 })
 
 cat1.products.create!({
